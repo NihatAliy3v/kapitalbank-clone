@@ -1,8 +1,10 @@
-import React from 'react'
+import MainCarousel from '../../components/common/carousels/MainCarousel'
 
 const Home = () => {
   return (
-    <div className='container h-[1500px]'>Home</div>
+    <div className='h-[1500px]'>
+      <MainCarousel/>
+    </div>
   )
 }
 

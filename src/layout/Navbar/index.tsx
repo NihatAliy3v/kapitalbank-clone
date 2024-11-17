@@ -16,7 +16,7 @@ const Navbar = () => {
         </ul>
         <Link
           to="/"
-          className="flex items-center justify-center h-8  p-[10px] bg-red-500 rounded-md "
+          className="flex items-center justify-center h-8  p-[10px] bg-red-500 text-white rounded-md "
           title="BirBank"
           aria-label="BirBank"
           target="blank"
