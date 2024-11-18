@@ -1,25 +1,21 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { useRef } from "react";
-import { mainSlideList } from "../../../home/Main/data";
-import MainCarouselCard from "./MainCarouselCard";
+import CardCarouselItem from "./CardCarouselItem";
+import Slider from "react-slick";
 import { settings } from "./config";
+import { cardData } from "../../../home/CardCollection/data";
 
-const MainCarousel = () => {
+const CardCarousel = () => {
   const sliderRef = useRef(null);
-
   const handleNext = () => {
     sliderRef.current.slickNext();
   };
   const handlePrev = () => {
     sliderRef.current.slickPrev();
   };
-
   return (
     <Slider ref={sliderRef} {...settings}>
-      {mainSlideList.map((item) => (
-        <MainCarouselCard
+      {cardData.map((item) => (
+        <CardCarouselItem
           item={item}
           handlePrev={handlePrev}
           handleNext={handleNext}
@@ -28,5 +24,4 @@ const MainCarousel = () => {
     </Slider>
   );
 };
-
-export default MainCarousel;
+export default CardCarousel;
