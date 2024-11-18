@@ -1,3 +1,4 @@
+import MainButtonLink from "../../components/ui/MainButtonLink";
 import { navList } from "./navList";
 import { Link } from "react-router-dom";
 
@@ -14,16 +15,18 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <Link
-          to="/"
-          className="flex items-center justify-center h-8  p-[10px] bg-red-500 text-white rounded-md "
-          title="BirBank"
-          aria-label="BirBank"
-          target="blank"
-          rel="noopener"
-        >
-          birbank
-        </Link>
+
+        <MainButtonLink
+          text="birbank"
+          url="/"
+          width="w-[100px]"
+          height="h-8"
+          bgColor="bg-mainColor"
+          textColor="text-white"
+          radius="md"
+          textSize="text-md"
+          hoverColor="bg-mainColorHover"
+        />
       </div>
     </nav>
   );

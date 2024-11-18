@@ -13,7 +13,16 @@ export default {
         // "2xl": "1440px",
       },
     },
-    extend: {},
+    extend: {
+      boxShadow: {
+        booking: "0 4px 12px hsla(0, 0%, 80%, .45)",
+      },
+      colors: {
+        mainColor: "#f45369",
+        mainColorHover:"#ef3e42",
+        textPrimaryColor: "#2e3131"
+      },
+    },
   },
   plugins: [],
 };
