@@ -37,7 +37,7 @@ const MainCarouselCard: React.FC<MainCarouselCardProps> = ({
                 height="h-[55px]"
                 bgColor="bg-mainColor"
                 textColor="text-white"
-                radius="md"
+                radius="rounded-lg"
                 textSize="text-xl"
                 hoverColor="bg-mainColorHover"
               />

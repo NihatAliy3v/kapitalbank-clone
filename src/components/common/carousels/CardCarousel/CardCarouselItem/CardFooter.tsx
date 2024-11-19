@@ -15,6 +15,7 @@ interface CardFooterProps {
   buttonUrl: string;
 }
 
+
 const CardFooter: React.FC<CardFooterProps> = ({
   handlePrev,
   handleNext,
@@ -22,18 +23,19 @@ const CardFooter: React.FC<CardFooterProps> = ({
   buttonTitle,
   buttonUrl,
   cardDetailList,
+  
 }) => {
   return (
     <div className="mt-[23px] py-[34px] bg-[#e9ecf0] text-textPrimaryColor">
       <div className="container flex relative">
         <div className="w-[63%]">
-          <ul className="mb-6 flex  justify-between">
+          <ul className="mb-6 flex justify-between">
             {cardDetailList.map((item) => (
               <li className="leading-[24px]">
-                <span className="text-mainColor text-[28px] leading-[35px] mb-[5px] font-semibold block">
-                  {item.title}
-                </span>
-                {item.subTitle}
+                  <span className="text-mainColor text-[28px] leading-[35px] mb-[5px] font-semibold block">
+                    {item.title}
+                  </span>
+                  {item.subTitle}
               </li>
             ))}
           </ul>
@@ -44,7 +46,7 @@ const CardFooter: React.FC<CardFooterProps> = ({
             height="h-[55px]"
             bgColor="bg-mainColor"
             textColor="text-white"
-            radius="md"
+            radius="rounded-lg"
             textSize="text-xl"
             hoverColor="bg-mainColorHover"
           />
