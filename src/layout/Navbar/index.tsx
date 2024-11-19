@@ -23,7 +23,7 @@ const Navbar = () => {
           height="h-8"
           bgColor="bg-mainColor"
           textColor="text-white"
-          radius="md"
+          radius="rounded-lg"
           textSize="text-md"
           hoverColor="bg-mainColorHover"
         />
