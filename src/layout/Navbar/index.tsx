@@ -25,7 +25,7 @@ const Navbar = () => {
           textColor="text-white"
           radius="rounded-lg"
           textSize="text-md"
-          hoverColor="bg-mainColorHover"
+          hoverColor="hover:bg-mainColorHover"
         />
       </div>
     </nav>

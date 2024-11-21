@@ -27,7 +27,7 @@ const MainButtonLink: React.FC<MainButtonLinkProps> = ({
   return (
     <Link
       to={url}
-      className={`flex items-center justify-center ${textSize} ${textColor} ${bgColor} ${width} ${height} ${radius} hover:${hoverColor} transition-all duration-300`}
+      className={`flex items-center justify-center ${textSize} ${textColor} ${bgColor} ${width} ${height} ${radius} ${hoverColor} transition-all duration-300`}
     >
       {text}
     </Link>
