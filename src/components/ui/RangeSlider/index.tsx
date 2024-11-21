@@ -16,18 +16,17 @@ const RangeSlider = () => {
   // 10.9 - 12 < 0-12
 
   // 2. 12 -> 13
-  // curr 
+  // curr
 
   return (
-    <div style={{ margin: "50px" }}>
+    <div className="w-full">
       <Range
-        step={0.1} // Daha dəqiq hərəkət üçün kiçik step dəyəri
+        step={0.1}
         min={Math.min(...STEPS)}
         max={Math.max(...STEPS)}
+        allowOverlap={true}
         values={values}
-        onChange={
-          (newValues) => setValues([findClosestValue(newValues[0])]) // Yalnız ən yaxın dəyərləri seçirik
-        }
+        onChange={(newValues) => setValues([findClosestValue(newValues[0])])}
         renderTrack={({ props, children }) => (
           <div
             {...props}
@@ -35,7 +34,15 @@ const RangeSlider = () => {
               ...props.style,
               height: "2px",
               width: "100%",
-              backgroundColor: "#ccc",
+              background: `linear-gradient(to right, #f45369 ${
+                ((values[0] - Math.min(...STEPS)) /
+                  (Math.max(...STEPS) - Math.min(...STEPS))) *
+                100
+              }%, #ccc ${
+                ((values[0] - Math.min(...STEPS)) /
+                  (Math.max(...STEPS) - Math.min(...STEPS))) *
+                100
+              }%)`,
             }}
           >
             {children}
@@ -49,12 +56,12 @@ const RangeSlider = () => {
               height: "20px",
               width: "20px",
               borderRadius: "50%",
-              backgroundColor: "#007bff",
+              backgroundColor: "#f45369",
             }}
           />
         )}
       />
-      <output style={{ marginTop: "10px" }}>{values[0]}</output>
+      <output className="text-sm font-light">10.9%</output>
     </div>
   );
 };
