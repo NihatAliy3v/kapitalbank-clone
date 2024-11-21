@@ -1,6 +1,5 @@
 import CreditBody from "./CreditBody";
 import CreditHeader from "./CreditHeader";
-
 const Credit = () => {
   return (
     <section>
