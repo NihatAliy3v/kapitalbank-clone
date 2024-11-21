@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Range } from "react-range";
 
-const RangeSlider = () => {
-  const [values, setValues] = useState([10.9]);
+const RangeSlider = ({values,setValues}) => {
   const STEPS = [10.9, 12, 13, 15, 16, 17, 18, 19, 20];
 
   const findClosestValue = (val) => {
@@ -61,7 +60,6 @@ const RangeSlider = () => {
           />
         )}
       />
-      <output className="text-sm font-light">10.9%</output>
     </div>
   );
 };

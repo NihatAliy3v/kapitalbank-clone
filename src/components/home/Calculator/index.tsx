@@ -1,8 +1,11 @@
 import { TabGroup, TabPanel, TabPanels } from "@headlessui/react";
 import Tabs from "./TabList";
 import RangeSlider from "../../ui/RangeSlider";
+import { useState } from "react";
 
 const Calculator = () => {
+  const [values, setValues] = useState([10.9]);
+
   return (
     <section className="text-textPrimaryColor">
       <div className="container">
@@ -29,9 +32,17 @@ const Calculator = () => {
                         <span className="absolute text-xs font-semibold top-[8px] left-[20px] text-[#bdc3c7]">
                           Məbləğ
                         </span>
-                        <span>10000</span>
+                        <span>{values[0]}</span>
                         <div className="absolute top-full left-0 w-full ">
-                          <RangeSlider />
+                          <RangeSlider values={values} setValues={setValues} />
+                          <div className="flex justify-between mt-2">
+                            <span className="text-sm font-light">
+                              10.9%
+                            </span>
+                            <span className="text-sm font-light">
+                              20%
+                            </span>
+                          </div>
                         </div>
                       </div>
 
