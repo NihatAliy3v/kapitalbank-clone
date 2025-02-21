@@ -19,6 +19,7 @@ const CardCarousel = () => {
           item={item}
           handlePrev={handlePrev}
           handleNext={handleNext}
+          key={item.id}
         />
       ))}
     </Slider>

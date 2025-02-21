@@ -31,7 +31,7 @@ const CardFooter: React.FC<CardFooterProps> = ({
         <div className="w-[63%]">
           <ul className="mb-6 flex justify-between">
             {cardDetailList.map((item) => (
-              <li className="leading-[24px]">
+              <li className="leading-[24px]" key={item.title}>
                   <span className="text-mainColor text-[28px] leading-[35px] mb-[5px] font-semibold block">
                     {item.title}
                   </span>
