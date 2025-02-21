@@ -1,5 +1,8 @@
+import { id } from "ethers/lib/utils";
+
 export const cardData = [
   {
+    id: 1,
     cardName: "Cashback",
     cardContent:
       "Birbank kartı sizə 30%-dək cashback, pulsuz köçürmə və çıxarma, ikiqat ƏDV və digər üstünlüklər verəcək. ",
@@ -24,6 +27,7 @@ export const cardData = [
     buttonUrl: "/",
   },
   {
+    id: 2,
     cardName: "Umico",
     cardContent:
       " Gündəlik alış-veriş üçün olan, kredit və taksit kartı imkanlarını birləşdirən, Umico bonusları qazanma imkanını təqdim edən unikal bir kartdır. ",
@@ -48,6 +52,7 @@ export const cardData = [
     buttonUrl: "/",
   },
   {
+    id:3,
     cardName: "Miles",
     cardContent:
       " Kartla edilən nağdsız ödənişlərə 1 AZN-ə 1 mil bonus qazandıran, pulsuz səyahət, faizsiz və komissiyasız taksit imkanı verən unikal bir kartdır. ",
@@ -72,6 +77,7 @@ export const cardData = [
     buttonUrl: "/",
   },
   {
+    id:4,
     cardName: "Umico",
     cardContent:
       " Kapital Bank və Umiconun birgə təqdim etdiyi, gündəlik alış-veriş üçün nəzərdə tutulan, kredit və taksit kartı imkanlarını birləşdirən və hər yerdə əlavə Umico bonusları qazanma imkanını təqdim edən unikal bir kartdır. ",
@@ -96,6 +102,7 @@ export const cardData = [
     buttonUrl: "/",
   },
   {
+    id:5,
     cardName: "Star",
     cardContent:
       " 30 000 ₼-dək kredit xətti, tam komissiyasız, faizsiz və limitsiz nağdlaşdırma və köçürmə imkanı, 30%-dək keşbek və 2 qat ƏDV kimi çoxlu üstünlükləri olan, olduqca sadə və unikal bir kartdır.",

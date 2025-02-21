@@ -1,9 +1,10 @@
-import React from 'react'
+import { TabPanel } from "@headlessui/react";
+import React from "react";
 
-const TabPanelItem = () => {
-  return (
-    <div>TabPanelItem</div>
-  )
-}
+const TabPanelItem: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  return <TabPanel>{children}</TabPanel>;
+};
 
-export default TabPanelItem
+export default TabPanelItem;

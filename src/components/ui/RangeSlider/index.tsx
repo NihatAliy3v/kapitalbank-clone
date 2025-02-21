@@ -1,8 +1,10 @@
-import { useState } from "react";
 import { Range } from "react-range";
+import { STEPS } from "./config";
 
-const RangeSlider = ({values,setValues}) => {
-  const STEPS = [10.9, 12, 13, 15, 16, 17, 18, 19, 20];
+const RangeSlider = ({ values, setValues, isStep, min, max, step }) => {
+  const minValue = isStep ? Math.min(...STEPS) : min;
+  const maxValue = isStep ? Math.max(...STEPS) : max;
+  const stepCount = step;
 
   const findClosestValue = (val) => {
     return STEPS.reduce((prev, curr) =>
@@ -10,55 +12,53 @@ const RangeSlider = ({values,setValues}) => {
     );
   };
 
-  // 10.9, 11, 12, 13, 15, 16, 17, 18, 19, 20
-  // 1. 10.9 -> 12 curr 10.9 prev = 0
-  // 10.9 - 12 < 0-12
+  const renderTrack = ({ props, children }) => (
+    <div
+      {...props}
+      style={{
+        ...props.style,
+        height: "2px",
+        width: "100%",
+        background: `linear-gradient(to right, #f45369 ${
+          ((values[0] - minValue) / (maxValue - minValue)) * 100
+        }%, #ccc ${((values[0] - minValue) / (maxValue - minValue)) * 100}%)`,
+      }}
+    >
+      {children}
+    </div>
+  );
+  const renderThumb = ({ props }) => (
+    <div
+      {...props}
+      style={{
+        ...props.style,
+        height: "20px",
+        width: "20px",
+        borderRadius: "50%",
+        backgroundColor: "#f45369",
+      }}
+    />
+  );
 
-  // 2. 12 -> 13
-  // curr
+  const handleChange = (newValues) => {
+    if (isStep) {
+      setValues([findClosestValue(newValues[0])]);
+    } else {
+      setValues(newValues);
+    }
+  };
 
   return (
     <div className="w-full">
       <Range
-        step={0.1}
-        min={Math.min(...STEPS)}
-        max={Math.max(...STEPS)}
+        step={stepCount}
+        min={minValue}
+        max={maxValue}
         allowOverlap={true}
         values={values}
-        onChange={(newValues) => setValues([findClosestValue(newValues[0])])}
-        renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: "2px",
-              width: "100%",
-              background: `linear-gradient(to right, #f45369 ${
-                ((values[0] - Math.min(...STEPS)) /
-                  (Math.max(...STEPS) - Math.min(...STEPS))) *
-                100
-              }%, #ccc ${
-                ((values[0] - Math.min(...STEPS)) /
-                  (Math.max(...STEPS) - Math.min(...STEPS))) *
-                100
-              }%)`,
-            }}
-          >
-            {children}
-          </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: "20px",
-              width: "20px",
-              borderRadius: "50%",
-              backgroundColor: "#f45369",
-            }}
-          />
-        )}
+        onChange={handleChange}
+        renderTrack={renderTrack}
+        renderThumb={renderThumb}
       />
     </div>
   );

@@ -2,14 +2,17 @@ import MainButtonLink from "../../../ui/MainButtonLink";
 
 const creditDetails = [
   {
+    id: 1,
     title: "50 000 AZN-dək",
     subTitle: "Kredit məbləği",
   },
   {
+    id:2,
     title: "59 ayadək",
     subTitle: "Kredit müddəti",
   },
   {
+    id:3,
     title: "10.9%-dən",
     subTitle: "İllik faiz dərəcəsi",
   },
@@ -27,7 +30,7 @@ const CreditBody = () => {
         </div>
         <ul className="py-[20px] flex justify-between">
           {creditDetails.map((item) => (
-            <li className="leading-[24px]">
+            <li className="leading-[24px]" key={item.id}>
               <span className="text-mainColor text-[28px] leading-[35px] mb-[5px] font-semibold block">
                 {item.title}
               </span>
