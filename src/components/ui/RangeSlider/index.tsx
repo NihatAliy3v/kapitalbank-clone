@@ -1,18 +1,40 @@
 import { Range } from "react-range";
 import { STEPS } from "./config";
 
-const RangeSlider = ({ values, setValues, isStep, min, max, step }) => {
+interface RangeSliderProps {
+  values: number[];
+  setValues: (values: number[]) => void;
+  isStep: boolean;
+  min: number;
+  max: number;
+  step: number;
+}
+
+const RangeSlider: React.FC<RangeSliderProps> = ({
+  values,
+  setValues,
+  isStep,
+  min,
+  max,
+  step,
+}) => {
   const minValue = isStep ? Math.min(...STEPS) : min;
   const maxValue = isStep ? Math.max(...STEPS) : max;
   const stepCount = step;
 
-  const findClosestValue = (val) => {
+  const findClosestValue = (val: number) => {
     return STEPS.reduce((prev, curr) =>
       Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev
     );
   };
 
-  const renderTrack = ({ props, children }) => (
+  const renderTrack = ({
+    props,
+    children,
+  }: {
+    props: React.HTMLAttributes<HTMLDivElement>;
+    children: React.ReactNode;
+  }) => (
     <div
       {...props}
       style={{
@@ -27,7 +49,11 @@ const RangeSlider = ({ values, setValues, isStep, min, max, step }) => {
       {children}
     </div>
   );
-  const renderThumb = ({ props }) => (
+  const renderThumb = ({
+    props,
+  }: {
+    props: React.HTMLAttributes<HTMLDivElement>;
+  }) => (
     <div
       {...props}
       style={{
@@ -36,11 +62,13 @@ const RangeSlider = ({ values, setValues, isStep, min, max, step }) => {
         width: "20px",
         borderRadius: "50%",
         backgroundColor: "#f45369",
+        border: "4px solid #fff",
+        boxShadow: "0 0 13px rgba(0, 0, 0, .19)"
       }}
     />
   );
 
-  const handleChange = (newValues) => {
+  const handleChange = (newValues: number[]) => {
     if (isStep) {
       setValues([findClosestValue(newValues[0])]);
     } else {
