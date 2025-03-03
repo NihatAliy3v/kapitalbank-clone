@@ -5,9 +5,9 @@ interface RangeSliderProps {
   values: number[];
   setValues: (values: number[]) => void;
   isStep: boolean;
-  min: number;
-  max: number;
-  step: number;
+  min?: number;
+  max?: number;
+  step?: number;
 }
 
 const RangeSlider: React.FC<RangeSliderProps> = ({
@@ -18,8 +18,8 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   max,
   step,
 }) => {
-  const minValue = isStep ? Math.min(...STEPS) : min;
-  const maxValue = isStep ? Math.max(...STEPS) : max;
+  const minValue = isStep ? Math.min(...STEPS) : min as number;
+  const maxValue = isStep ? Math.max(...STEPS) : max as number;
   const stepCount = step;
 
   const findClosestValue = (val: number) => {

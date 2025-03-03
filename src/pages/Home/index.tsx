@@ -9,7 +9,7 @@ import OnlineCredit from "../../components/home/OnlineCredit";
 
 const Home: React.FC = () => {
   return (
-    <div className="h-[2900px]">
+    <div>
       <Main />
       <Booking />
       <CardCollection />
