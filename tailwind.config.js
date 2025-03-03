@@ -20,7 +20,8 @@ export default {
       colors: {
         mainColor: "#f45369",
         mainColorHover:"#ef3e42",
-        textPrimaryColor: "#2e3131"
+        textPrimaryColor: "#2e3131",
+        footerColor:"#2e3131",
       },
     },
   },

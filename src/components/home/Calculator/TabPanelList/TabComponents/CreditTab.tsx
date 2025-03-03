@@ -1,22 +1,19 @@
 import { useState } from "react";
 import RangeSlider from "../../../../ui/RangeSlider";
-import { Link } from "react-router-dom";
 import MainButtonLink from "../../../../ui/MainButtonLink";
+import { useCalculateMonthlyPayment } from "../../../../../hooks/useCalculateMonthlyPayment";
 
 export const CreditTab = () => {
-  const [amount, setAmount] = useState(10000);
-  const [percent, setPercent] = useState(15);
-  const [time, setTime] = useState(3);
-
-  const calculateMonthlyPayment = (principal, rate, term) => {
-    const monthlyRate = rate / 100 / 12;
-    return (principal * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term));
-  };
-
-  const monthlyPayment = calculateMonthlyPayment(amount, percent, time).toFixed(
-    2
-  );
-  console.log(monthlyPayment);
+  const [amount, setAmount] = useState([10000]);
+  const [percent, setPercent] = useState([15]);
+  const [time, setTime] = useState([3]);
+  const { calculateMonthlyPayment } = useCalculateMonthlyPayment();
+  const monthlyPayment = calculateMonthlyPayment({
+    principal: amount[0],
+    rate: percent[0],
+    term: time[0],
+  }).toFixed(2);
+  
   return (
     <div className="flex justify-between text-textPrimaryColor">
       <div className="w-[58.33%] px-4">
@@ -36,7 +33,7 @@ export const CreditTab = () => {
             </div>
             <div className="flex flex-col">
               <RangeSlider
-                values={[amount]}
+                values={amount}
                 setValues={setAmount}
                 isStep={false}
                 min={300}
@@ -58,7 +55,7 @@ export const CreditTab = () => {
             </div>
             <div className="flex flex-col">
               <RangeSlider
-                values={[percent]}
+                values={percent}
                 setValues={setPercent}
                 isStep={true}
               />
@@ -78,7 +75,7 @@ export const CreditTab = () => {
 
             <div className="flex flex-col">
               <RangeSlider
-                values={[time]}
+                values={time}
                 setValues={setTime}
                 isStep={false}
                 min={3}
